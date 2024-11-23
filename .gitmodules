@@ -1,0 +1,18 @@
+[submodule "KediRNG"]
+	path = KediRNG
+	url = https://github.com/tyuXX/KediRNG.git
+[submodule "tyuLIB"]
+	path = tyuLIB
+	url = https://github.com/tyuXX/tyuLIB.git
+[submodule "TowerDefenseSquared"]
+	path = TowerDefenseSquared
+	url = https://github.com/tyuXX/TowerDefenseSquared.git
+[submodule "DDCCrypterJS"]
+	path = DDCCrypterJS
+	url = https://github.com/tyuXX/DDCCrypterJS.git
+[submodule "ClinkerGame"]
+	path = ClinkerGame
+	url = https://github.com/tyuXX/ClinkerGame.git
+[submodule "DDCGrapherJS"]
+	path = DDCGrapherJS
+	url = https://github.com/tyuXX/DDCGrapherJS.git
