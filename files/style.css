@@ -22,13 +22,18 @@ body {
 
 /* Links */
 a {
+  display: block; /* Make the entire list item clickable */
+  padding: 15px; /* Add padding for a larger click area */
   color: #bb86fc; /* Modern purple link color */
   text-decoration: none;
-  transition: color 0.3s ease;
+  text-align: center; /* Center the text */
+  font-size: 1rem;
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 a:hover {
-  color: #3700b3; /* Slightly darker purple on hover */
+  color: #ffffff; /* Contrast text on hover */
+  background-color: #3700b3; /* Purple hover background */
 }
 
 /* Buttons */
@@ -55,14 +60,18 @@ ul {
   max-width: 600px;
   margin: 20px auto;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the list items */
 }
 
 li {
   background-color: #1f1b24; /* Slightly lighter than the body */
-  padding: 15px;
   margin-bottom: 10px;
   border-radius: 6px;
   border: 1px solid #333;
+  width: 100%; /* Make the list items stretch */
+  max-width: 400px; /* Add a cap for readability */
   transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
@@ -108,11 +117,12 @@ footer {
 }
 
 .light-theme a {
-  color: #007bff; /* Blue links for light theme */
+  color: #007bff; /* Blue link for light theme */
 }
 
 .light-theme a:hover {
-  color: #0056b3; /* Darker blue on hover */
+  color: #ffffff;
+  background-color: #0056b3; /* Dark blue hover background */
 }
 
 .light-theme button {
@@ -126,13 +136,14 @@ footer {
   color: #ffffff;
 }
 
+/* Light Theme */
 .light-theme li {
-  background-color: #ffffff; /* White background for list items */
+  background-color: #ffffff;
   border: 1px solid #ddd;
 }
 
 .light-theme li:hover {
-  background-color: #f0f0f0; /* Subtle gray hover effect */
+  background-color: #f0f0f0;
 }
 
 .light-theme header h1 {
@@ -146,6 +157,11 @@ footer {
 .light-theme footer {
   color: #6c757d;
   border-top: 1px solid #ddd;
+}
+
+#theme-toggle {
+  position: fixed;
+  bottom: 20px;
 }
 
 /* Animations */
