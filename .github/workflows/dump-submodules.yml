@@ -24,16 +24,17 @@ jobs:
           submodules_json="[]"
 
           # Loop through each submodule and record its folder path
-          git submodule foreach --recursive '
-            folder_path="$sm_path"
+          while read -r folder_path; do
             submodules_json=$(echo $submodules_json | jq ". + [{\"name\": \"$folder_path\"}]")
-          '
+          done < <(git config --file .gitmodules --get-regexp path | awk '{print $2}')
 
           # Output the generated JSON
           echo "$submodules_json" > submodules.json
 
       # Step 3: Commit and push submodules.json
       - name: Commit and push submodules.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
