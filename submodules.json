@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "name": "KediRNG"
+  },
+  {
+    "name": "tyuLIB"
+  },
+  {
+    "name": "TowerDefenseSquared"
+  },
+  {
+    "name": "DDCCrypterJS"
+  },
+  {
+    "name": "ClinkerGame"
+  },
+  {
+    "name": "DDCGrapherJS"
+  }
+]
