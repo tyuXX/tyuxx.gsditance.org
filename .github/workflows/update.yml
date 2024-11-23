@@ -26,7 +26,14 @@ jobs:
           git submodule foreach --recursive '
             echo "Updating $name in $sm_path";
             git fetch --all;
-            git checkout $(git symbolic-ref --short HEAD || git rev-parse --abbrev-ref HEAD || echo "master");
+            
+            # Check if we're in a detached HEAD state and checkout the main branch
+            if [ $(git symbolic-ref --short HEAD) == "" ]; then
+              echo "Detached HEAD detected, checking out main branch";
+              git checkout main || git checkout master;
+            fi;
+            
+            # Pull the latest changes
             git pull;
           '
 
