@@ -1,3 +1,8 @@
+const toggle = document.getElementById("theme-toggle");
+toggle.addEventListener("click", () => {
+  document.body.classList.toggle("light-theme");
+});
+
 fetch("submodules.json")
   .then((response) => response.json())
   .then((data) => {
@@ -9,7 +14,6 @@ fetch("submodules.json")
       // Set link properties
       link.textContent = submodule.name;
       link.href = `/${submodule.name}`; // Adjust the URL as needed
-      link.target = "_blank"; // Open link in a new tab
 
       // Append link to the list item and the list item to the list
       listItem.appendChild(link);
