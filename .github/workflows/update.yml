@@ -36,8 +36,14 @@ jobs:
             # Pull the latest changes
             git pull;
           "
-        
-      # Step 3: Commit and push updated submodule references
+
+      # Step 3: Fetch the latest changes from the remote repository
+      - name: Fetch and merge remote changes
+        run: |
+          git fetch origin
+          git merge origin/main || git merge --strategy=recursive -X theirs origin/main # Handle any conflicts automatically
+
+      # Step 4: Commit and push updated submodule references
       - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
