@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>[tyuXX]</title>
+    <link rel="stylesheet" href="files/style.css">
 </head>
 <body>
     <h2>Hello! This is tyuXX's personal page on GsDistance</h2>
@@ -11,18 +12,6 @@
     
     <ul id="submodule-list"></ul>
 
-    <script>
-        fetch('submodules.json')
-            .then(response => response.json())
-            .then(data => {
-                const list = document.getElementById('submodule-list');
-                data.forEach(submodule => {
-                    const listItem = document.createElement('li');
-                    listItem.textContent = submodule.name;
-                    list.appendChild(listItem);
-                });
-            })
-            .catch(error => console.error('Error loading submodules:', error));
-    </script>
+    <script src="files/script.js"></script>
 </body>
 </html>
