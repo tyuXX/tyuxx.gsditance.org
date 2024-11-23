@@ -14,7 +14,7 @@ jobs:
     steps:
       # Step 1: Check out the main repository, including submodules
       - name: Check out repository with submodules
-        uses: actions/checkout@main
+        uses: actions/checkout@v3
         with:
           submodules: recursive # Ensure submodules are checked out
           fetch-depth: 0        # Fetch full history
@@ -34,9 +34,8 @@ jobs:
             fi;
             
             # Pull the latest changes
-            git pull;
+            git pull
           '
-
       # Step 3: Commit and push updated submodule references
       - name: Commit and push changes
         run: |
