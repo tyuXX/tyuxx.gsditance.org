@@ -16,3 +16,6 @@
 [submodule "DDCGrapherJS"]
 	path = DDCGrapherJS
 	url = https://github.com/tyuXX/DDCGrapherJS.git
+[submodule "GravSim"]
+	path = GravSim
+	url = https://github.com/tyuXX/GravSim.git
