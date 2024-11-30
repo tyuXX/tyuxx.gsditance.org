@@ -1,34 +1,82 @@
 [
   {
     "name": "KediRNG",
-    "description": "Web based game to pass time"
+    "description": "Web based game to pass time",
+    "lastCommit": {
+      "hash": "588f60d86f021106af68142ca1884bd6f5adedd2",
+      "message": "Delete CNAME",
+      "date": "2024-11-23 14:37:08 +0300"
+    },
+    "lastUpdated": "2024-11-23 14:37:08 +0300"
   },
   {
     "name": "tyuLIB",
-    "description": "No description available"
+    "description": "No description available",
+    "lastCommit": {
+      "hash": "079d7a3aa94275d650825a2cb0d2c8cfde352eb7",
+      "message": "push",
+      "date": "2024-11-20 23:01:50 +0300"
+    },
+    "lastUpdated": "2024-11-20 23:01:50 +0300"
   },
   {
     "name": "TowerDefenseSquared",
-    "description": "No description available"
+    "description": "No description available",
+    "lastCommit": {
+      "hash": "504f73d0aa7116e02647589d460a5ea20ac18aec",
+      "message": "push",
+      "date": "2024-08-12 00:14:35 +0300"
+    },
+    "lastUpdated": "2024-08-12 00:14:35 +0300"
   },
   {
     "name": "DDCCrypterJS",
-    "description": "No description available"
+    "description": "No description available",
+    "lastCommit": {
+      "hash": "6f23252a2693d12a96a2e1552812fba70ddf1810",
+      "message": "push",
+      "date": "2024-08-14 17:17:13 +0300"
+    },
+    "lastUpdated": "2024-08-14 17:17:13 +0300"
   },
   {
     "name": "ClinkerGame",
-    "description": "MaxLevelClinker made in HTML-JS-CSS"
+    "description": "MaxLevelClinker made in HTML-JS-CSS",
+    "lastCommit": {
+      "hash": "69d99d7bba4660a9ed39d5de51f13069bf76575d",
+      "message": "push undone",
+      "date": "2024-07-29 13:25:29 +0300"
+    },
+    "lastUpdated": "2024-07-29 13:25:29 +0300"
   },
   {
     "name": "DDCGrapherJS",
-    "description": "No description available"
+    "description": "No description available",
+    "lastCommit": {
+      "hash": "678655fcd47a9001d9a17188acc9948d2d93cfc5",
+      "message": "Create static.yml",
+      "date": "2024-07-24 00:02:03 +0300"
+    },
+    "lastUpdated": "2024-07-24 00:02:03 +0300"
   },
   {
     "name": "GravSim",
-    "description": "No description available"
+    "description": "No description available",
+    "lastCommit": {
+      "hash": "16296300ebbeeef581b4ca942109c43b97a88a64",
+      "message": "Fix stuff",
+      "date": "2024-11-29 23:14:34 +0300"
+    },
+    "lastUpdated": "2024-11-29 23:14:34 +0300"
   },
   {
     "name": "2048",
-    "description": "No description available"
+    "description": "A basic impelentation of 2048 with a customizable grid size.",
+    "lastCommit": {
+      "hash": "e194a8f297ad30edcb42c25037c616718bfc148b",
+      "message": "Push",
+      "date": "2024-11-30 12:02:06 +0300"
+    },
+    "lastUpdated": "2024-11-30 12:02:06 +0300"
   }
 ]
