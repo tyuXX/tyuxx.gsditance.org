@@ -36,8 +36,9 @@ jobs:
             path=$(echo "$line" | awk '{print $2}')
             url=$(git config --file .gitmodules --get "submodule.$path.url")
             
-            # Extract repo name from URL
+            # Extract repo name and format GitHub URL
             repo=$(basename "$url" .git)
+            github_url="https://github.com/$owner/$repo"
             
             # Change to submodule directory
             cd "$path"
@@ -61,10 +62,12 @@ jobs:
             submodules_json=$(echo $submodules_json | jq ". + [{
               \"name\": \"$path\",
               \"description\": \"$description\",
+              \"githubUrl\": \"$github_url\",
               \"lastCommit\": {
                 \"hash\": \"$last_commit_hash\",
                 \"message\": \"$(echo "$last_commit_message" | sed 's/"/\\"/g')\",
-                \"date\": \"$last_commit_date\"
+                \"date\": \"$last_commit_date\",
+                \"url\": \"$github_url/commit/$last_commit_hash\"
               },
               \"lastUpdated\": \"$last_updated\"
             }]")

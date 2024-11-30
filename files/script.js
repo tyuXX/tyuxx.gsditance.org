@@ -66,9 +66,11 @@ const createProjectCard = (project) => {
   header.className = "project-header";
   
   const nameLink = document.createElement("a");
-  nameLink.href = `/${project.name}`;
+  nameLink.href = project.githubUrl;
   nameLink.className = "project-name";
   nameLink.textContent = project.name;
+  nameLink.target = "_blank";
+  nameLink.rel = "noopener noreferrer";
   
   const date = document.createElement("span");
   date.className = "project-date";
@@ -84,8 +86,10 @@ const createProjectCard = (project) => {
   
   // Create commit link
   const commitLink = document.createElement("a");
-  commitLink.href = `/${project.name}/commit/${project.lastCommit.hash}`;
+  commitLink.href = project.lastCommit.url;
   commitLink.className = "project-commit";
+  commitLink.target = "_blank";
+  commitLink.rel = "noopener noreferrer";
   
   const commitIcon = document.createElement("i");
   commitIcon.className = "fas fa-code-commit";
