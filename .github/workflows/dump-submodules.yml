@@ -1,11 +1,11 @@
-name: Dump Submodule Locations and Descriptions
+name: Dump Submodule Locations and Information
 
 on:
   push:
     branches:
       - main
   schedule:
-    - cron: '0 0 * * 0'  # Run weekly to update descriptions
+    - cron: '0 0 * * *'  # Run daily to update descriptions
 
 jobs:
   dump-submodule-info:
@@ -39,15 +39,34 @@ jobs:
             # Extract repo name from URL
             repo=$(basename "$url" .git)
             
+            # Change to submodule directory
+            cd "$path"
+            
+            # Get last commit info
+            last_commit_hash=$(git rev-parse HEAD)
+            last_commit_message=$(git log -1 --pretty=%B)
+            last_commit_date=$(git log -1 --format=%cd --date=iso)
+            last_updated=$(git log -1 --format=%cd --date=iso)
+            
+            # Return to root directory
+            cd - > /dev/null
+            
             # Fetch repository description using GitHub API
-            description=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
-              "https://api.github.com/repos/$owner/$repo" | \
-              jq -r '.description // "No description available"')
+            repo_info=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
+              "https://api.github.com/repos/$owner/$repo")
+            
+            description=$(echo "$repo_info" | jq -r '.description // "No description available"')
             
             # Add to JSON array
             submodules_json=$(echo $submodules_json | jq ". + [{
               \"name\": \"$path\",
-              \"description\": \"$description\"
+              \"description\": \"$description\",
+              \"lastCommit\": {
+                \"hash\": \"$last_commit_hash\",
+                \"message\": \"$(echo "$last_commit_message" | sed 's/"/\\"/g')\",
+                \"date\": \"$last_commit_date\"
+              },
+              \"lastUpdated\": \"$last_updated\"
             }]")
           done < <(git config --file .gitmodules --get-regexp path)
           

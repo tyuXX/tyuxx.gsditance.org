@@ -121,17 +121,32 @@ main {
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
-.project-grid a {
-  display: block;
-  padding: 1.5rem;
+.project-header {
+  padding: 1.5rem 1.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.project-name {
   color: var(--primary-color);
   text-decoration: none;
   font-weight: 500;
   font-size: 1.1rem;
 }
 
+.project-date {
+  font-size: 0.8rem;
+  color: var(--text-dark);
+  opacity: 0.7;
+}
+
+.light-theme .project-date {
+  color: var(--text-light);
+}
+
 .project-description {
-  padding: 0 1.5rem 1.5rem;
+  padding: 0 1.5rem 1rem;
   color: var(--text-dark);
   font-size: 0.9rem;
   line-height: 1.5;
@@ -140,6 +155,85 @@ main {
 }
 
 .light-theme .project-description {
+  color: var(--text-light);
+}
+
+.project-commit {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-dark);
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.light-theme .project-commit {
+  border-top-color: rgba(0, 0, 0, 0.1);
+  color: var(--text-light);
+}
+
+.project-commit:hover {
+  background-color: rgba(187, 134, 252, 0.1);
+}
+
+.project-commit i {
+  color: var(--primary-color);
+  font-size: 0.9rem;
+}
+
+.commit-message {
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.commit-hash {
+  color: var(--primary-color);
+  font-family: monospace;
+  font-size: 0.8rem;
+}
+
+/* Loading State */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  color: var(--primary-color);
+}
+
+.loading-spinner i {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error Message */
+.error-message {
+  text-align: center;
+  padding: 2rem;
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.1);
+  border-radius: 10px;
+  margin: 1rem 0;
+}
+
+/* No Results */
+.no-results {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-dark);
+  opacity: 0.7;
+}
+
+.light-theme .no-results {
   color: var(--text-light);
 }
 
