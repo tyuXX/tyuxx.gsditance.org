@@ -19,3 +19,6 @@
 [submodule "GravSim"]
 	path = GravSim
 	url = https://github.com/tyuXX/GravSim.git
+[submodule "2048"]
+	path = 2048
+	url = https://github.com/tyuXX/2048.git
