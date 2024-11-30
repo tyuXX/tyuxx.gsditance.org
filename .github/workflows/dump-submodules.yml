@@ -1,12 +1,14 @@
-name: Dump Submodule Locations
+name: Dump Submodule Locations and Descriptions
 
 on:
   push:
     branches:
       - main
+  schedule:
+    - cron: '0 0 * * 0'  # Run weekly to update descriptions
 
 jobs:
-  dump-submodule-locations:
+  dump-submodule-info:
     runs-on: ubuntu-latest
 
     steps:
@@ -14,20 +16,41 @@ jobs:
       - name: Check out repository with submodules
         uses: actions/checkout@main
         with:
-          submodules: recursive  # Ensure submodules are checked out
-          fetch-depth: 0         # Fetch full history
+          submodules: recursive
+          fetch-depth: 0
 
-      # Step 2: Generate JSON file with submodule folder locations
-      - name: Generate submodule locations JSON
+      # Step 2: Generate JSON file with submodule information
+      - name: Generate submodule information JSON
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Initialize an empty JSON array
           submodules_json="[]"
-
-          # Loop through each submodule and record its folder path
-          while read -r folder_path; do
-            submodules_json=$(echo $submodules_json | jq ". + [{\"name\": \"$folder_path\"}]")
-          done < <(git config --file .gitmodules --get-regexp path | awk '{print $2}')
-
+          
+          # Get the owner/organization name from the repository URL
+          owner=$(git config --get remote.origin.url | sed -n 's/.*github.com[:\/]\([^\/]*\)\/.*/\1/p')
+          
+          # Loop through each submodule
+          while IFS= read -r line; do
+            # Get submodule path and URL
+            path=$(echo "$line" | awk '{print $2}')
+            url=$(git config --file .gitmodules --get "submodule.$path.url")
+            
+            # Extract repo name from URL
+            repo=$(basename "$url" .git)
+            
+            # Fetch repository description using GitHub API
+            description=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
+              "https://api.github.com/repos/$owner/$repo" | \
+              jq -r '.description // "No description available"')
+            
+            # Add to JSON array
+            submodules_json=$(echo $submodules_json | jq ". + [{
+              \"name\": \"$path\",
+              \"description\": \"$description\"
+            }]")
+          done < <(git config --file .gitmodules --get-regexp path)
+          
           # Output the generated JSON
           echo "$submodules_json" > submodules.json
 
@@ -39,5 +62,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add submodules.json
-          git commit -m "Update submodule locations in submodules.json" || echo "No changes to commit"
+          git commit -m "Update submodule information in submodules.json" || echo "No changes to commit"
           git push origin main

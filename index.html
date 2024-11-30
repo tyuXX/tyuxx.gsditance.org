@@ -3,16 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>[tyuXX]</title>
+    <meta name="description" content="tyuXX's personal project portfolio on GsDistance - Explore web-based projects and applications" />
+    <meta name="theme-color" content="#121212" />
+    <title>[tyuXX] | GsDistance</title>
     <link rel="stylesheet" href="files/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   </head>
   <body>
-    <h2>Hello! This is tyuXX's personal page on GsDistance</h2>
-    <h3>You can view my web based projects from here.</h3>
+    <header>
+      <h1>Welcome to tyuXX's page</h1>
+      <p class="subtitle">Explore my web-based projects on GsDistance.org</p>
+    </header>
 
-    <ul id="submodule-list"></ul>
+    <main>
+      <section class="projects">
+        <h2>My Projects</h2>
+        <div class="search-container">
+          <input type="text" id="project-search" placeholder="Search projects..." />
+          <i class="fas fa-search search-icon"></i>
+        </div>
+        <ul id="submodule-list" class="project-grid"></ul>
+      </section>
+    </main>
 
-    <button id="theme-toggle">Toggle Theme</button>
+    <footer>
+      <button id="theme-toggle" class="theme-toggle">
+        <i class="fas fa-moon"></i>
+        <span>Toggle Theme</span>
+      </button>
+      <p class="footer-text"> 2024 tyuXX. All rights reserved.</p>
+    </footer>
 
     <script src="files/script.js"></script>
   </body>
