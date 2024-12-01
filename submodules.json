@@ -94,5 +94,17 @@
       "url": "https://github.com/tyuXX/2048/commit/e194a8f297ad30edcb42c25037c616718bfc148b"
     },
     "lastUpdated": "2024-11-30 12:02:06 +0300"
+  },
+  {
+    "name": "DDCMUN",
+    "description": "An MUN application made in HTML, as wxMUN wasn't updated and i want a new program.",
+    "githubUrl": "https://github.com/tyuXX/DDCMUN",
+    "lastCommit": {
+      "hash": "370bb81412cf50bb9536abe384debc1e85276351",
+      "message": "Try fix",
+      "date": "2024-12-01 17:41:32 +0300",
+      "url": "https://github.com/tyuXX/DDCMUN/commit/370bb81412cf50bb9536abe384debc1e85276351"
+    },
+    "lastUpdated": "2024-12-01 17:41:32 +0300"
   }
 ]
