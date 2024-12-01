@@ -25,3 +25,6 @@
 [submodule "DDCMUN"]
 	path = DDCMUN
 	url = https://github.com/tyuXX/DDCMUN.git
+[submodule "Chess"]
+	path = Chess
+	url = https://github.com/tyuXX/Chess.git
