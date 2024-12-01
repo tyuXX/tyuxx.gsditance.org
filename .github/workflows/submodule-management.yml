@@ -1,25 +1,43 @@
-name: Dump Submodule Locations and Information
+name: Submodule Management
 
 on:
   push:
     branches:
       - main
   schedule:
-    - cron: '0 0 * * *'  # Run daily to update descriptions
+    - cron: '0 0 * * *'  # Run daily at midnight UTC
 
 jobs:
-  dump-submodule-info:
+  manage-submodules:
     runs-on: ubuntu-latest
 
     steps:
       # Step 1: Check out the main repository, including submodules
       - name: Check out repository with submodules
-        uses: actions/checkout@main
+        uses: actions/checkout@v3
         with:
           submodules: recursive
           fetch-depth: 0
 
-      # Step 2: Generate JSON file with submodule information
+      # Step 2: Update all submodules
+      - name: Update submodules
+        run: |
+          # Loop through each submodule and pull all branches
+          git submodule foreach --recursive "
+            echo 'Updating \$name in \$sm_path';
+            git fetch --all;
+            
+            # Check if we're in a detached HEAD state and checkout the main branch
+            if [ -z \"\$(git symbolic-ref --short HEAD 2>/dev/null)\" ]; then
+              echo 'Detached HEAD detected, checking out main branch';
+              git checkout main || git checkout master;
+            fi;
+            
+            # Pull the latest changes
+            git pull;
+          "
+
+      # Step 3: Generate JSON file with submodule information
       - name: Generate submodule information JSON
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -32,33 +50,26 @@ jobs:
           
           # Loop through each submodule
           while IFS= read -r line; do
-            # Get submodule path and URL
             path=$(echo "$line" | awk '{print $2}')
             url=$(git config --file .gitmodules --get "submodule.$path.url")
             
-            # Extract repo name and format GitHub URL
             repo=$(basename "$url" .git)
             github_url="https://github.com/$owner/$repo"
             
-            # Change to submodule directory
             cd "$path"
             
-            # Get last commit info
             last_commit_hash=$(git rev-parse HEAD)
             last_commit_message=$(git log -1 --pretty=%B)
             last_commit_date=$(git log -1 --format=%cd --date=iso)
             last_updated=$(git log -1 --format=%cd --date=iso)
             
-            # Return to root directory
             cd - > /dev/null
             
-            # Fetch repository description using GitHub API
             repo_info=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
               "https://api.github.com/repos/$owner/$repo")
             
             description=$(echo "$repo_info" | jq -r '.description // "No description available"')
             
-            # Add to JSON array
             submodules_json=$(echo $submodules_json | jq ". + [{
               \"name\": \"$path\",
               \"description\": \"$description\",
@@ -73,16 +84,14 @@ jobs:
             }]")
           done < <(git config --file .gitmodules --get-regexp path)
           
-          # Output the generated JSON
           echo "$submodules_json" > submodules.json
 
-      # Step 3: Commit and push submodules.json
-      - name: Commit and push submodules.json
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # Step 4: Commit and push all changes
+      - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add submodules.json
-          git commit -m "Update submodule information in submodules.json" || echo "No changes to commit"
+          git add .
+          git commit -m "Update submodules and submodule information" || echo "No changes to commit"
           git push origin main
