@@ -9,7 +9,8 @@
       "date": "2024-11-30 18:25:44 +0300",
       "url": "https://github.com/tyuXX/KediRNG/commit/61718e9e1176216c591513076e2381211a512d95"
     },
-    "lastUpdated": "2024-11-30 18:25:44 +0300"
+    "lastUpdated": "2024-11-30 18:25:44 +0300",
+    "readme": "## KediRNG\r\n\r\n### A basic web based chance game.\r\n\r\n- Designed by OBX555\r\n- Programmed, styled and produced by tyuXX"
   },
   {
     "name": "tyuLIB",
@@ -21,7 +22,8 @@
       "date": "2024-11-20 23:01:50 +0300",
       "url": "https://github.com/tyuXX/tyuLIB/commit/079d7a3aa94275d650825a2cb0d2c8cfde352eb7"
     },
-    "lastUpdated": "2024-11-20 23:01:50 +0300"
+    "lastUpdated": "2024-11-20 23:01:50 +0300",
+    "readme": ""
   },
   {
     "name": "TowerDefenseSquared",
@@ -33,7 +35,8 @@
       "date": "2024-08-12 00:14:35 +0300",
       "url": "https://github.com/tyuXX/TowerDefenseSquared/commit/504f73d0aa7116e02647589d460a5ea20ac18aec"
     },
-    "lastUpdated": "2024-08-12 00:14:35 +0300"
+    "lastUpdated": "2024-08-12 00:14:35 +0300",
+    "readme": ""
   },
   {
     "name": "DDCCrypterJS",
@@ -45,7 +48,8 @@
       "date": "2024-08-14 17:17:13 +0300",
       "url": "https://github.com/tyuXX/DDCCrypterJS/commit/6f23252a2693d12a96a2e1552812fba70ddf1810"
     },
-    "lastUpdated": "2024-08-14 17:17:13 +0300"
+    "lastUpdated": "2024-08-14 17:17:13 +0300",
+    "readme": ""
   },
   {
     "name": "ClinkerGame",
@@ -57,7 +61,8 @@
       "date": "2024-07-29 13:25:29 +0300",
       "url": "https://github.com/tyuXX/ClinkerGame/commit/69d99d7bba4660a9ed39d5de51f13069bf76575d"
     },
-    "lastUpdated": "2024-07-29 13:25:29 +0300"
+    "lastUpdated": "2024-07-29 13:25:29 +0300",
+    "readme": ""
   },
   {
     "name": "DDCGrapherJS",
@@ -69,7 +74,8 @@
       "date": "2024-07-24 00:02:03 +0300",
       "url": "https://github.com/tyuXX/DDCGrapherJS/commit/678655fcd47a9001d9a17188acc9948d2d93cfc5"
     },
-    "lastUpdated": "2024-07-24 00:02:03 +0300"
+    "lastUpdated": "2024-07-24 00:02:03 +0300",
+    "readme": ""
   },
   {
     "name": "GravSim",
@@ -81,7 +87,8 @@
       "date": "2024-11-29 23:14:34 +0300",
       "url": "https://github.com/tyuXX/GravSim/commit/16296300ebbeeef581b4ca942109c43b97a88a64"
     },
-    "lastUpdated": "2024-11-29 23:14:34 +0300"
+    "lastUpdated": "2024-11-29 23:14:34 +0300",
+    "readme": ""
   },
   {
     "name": "2048",
@@ -93,7 +100,8 @@
       "date": "2024-11-30 12:02:06 +0300",
       "url": "https://github.com/tyuXX/2048/commit/e194a8f297ad30edcb42c25037c616718bfc148b"
     },
-    "lastUpdated": "2024-11-30 12:02:06 +0300"
+    "lastUpdated": "2024-11-30 12:02:06 +0300",
+    "readme": "# 2048 Game\n\nA 2048 game with customizable grid sizes. Play with any grid size from 2x2 up to 56x56.\n\n[Play the game](https://tyuXX.github.io/2048)\n\n## Features\n\nbasic 2048, cheesecake not included.\n\n## How to Play\n\n1. Use arrow keys or WASD to move tiles\n2. Tiles with the same number merge when they collide\n3. Create a tile with the number 2048 to win!\n4. Adjust grid size using the slider for different challenges\n5. Try to achieve high scores across different grid sizes\n\n## Controls\n\n- **Arrow Keys** or **WASD**: Move tiles\n- **Slider**: Change grid size (2x2 to 56x56)\n- **New Game Button**: Start a fresh game\n\n## Technical Details\n\nThe game is built using vanilla JavaScript, HTML5, and CSS. That's it.\n\n## License\n\nThis project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.\nI don't care what you do to this at all if you want to."
   },
   {
     "name": "DDCMUN",
@@ -105,18 +113,20 @@
       "date": "2024-12-01 19:10:20 +0300",
       "url": "https://github.com/tyuXX/DDCMUN/commit/5c68386375f7e2151683aba32385bf8d81e8fea7"
     },
-    "lastUpdated": "2024-12-01 19:10:20 +0300"
+    "lastUpdated": "2024-12-01 19:10:20 +0300",
+    "readme": "# DDCMUN: Delegate and Committee Management Utility\n\n## Overview\nA web-based tool for managing Model United Nations conferences, designed by Cheese Inc. and [tyuXX](https://github.com/tyuXX).\n\n## Key Functionalities\n- Add/remove delegates\n- Create different list types (GSL, Moderated Caucus, etc.)\n- Set and manage timers\n- Save and load sessions\n- Basic MUN stuff, that's it.\n\n## License\nMIT License"
   },
   {
     "name": "Chess",
     "description": "Basic chess game made using HTML",
     "githubUrl": "https://github.com/tyuXX/Chess",
     "lastCommit": {
-      "hash": "e8264cd84d29b6f427b02fe517b0d36ecd91c42d",
-      "message": "add readme",
-      "date": "2024-12-01 19:17:22 +0300",
-      "url": "https://github.com/tyuXX/Chess/commit/e8264cd84d29b6f427b02fe517b0d36ecd91c42d"
+      "hash": "d0669c59b065e1ec9027022847b815ec6380a3af",
+      "message": "Add dark mode",
+      "date": "2024-12-01 19:34:29 +0300",
+      "url": "https://github.com/tyuXX/Chess/commit/d0669c59b065e1ec9027022847b815ec6380a3af"
     },
-    "lastUpdated": "2024-12-01 19:17:22 +0300"
+    "lastUpdated": "2024-12-01 19:34:29 +0300",
+    "readme": "# Chess\n\nA simple chess game built with HTML, CSS, and JavaScript.\n\n## Features\n\n- Extreme chess gameplay\n- Adventure\n- Cheese not included\n- No bugs\n- No bugs\n- No bugs\n- No bugs\n- No bugs\n- No bugs\n- No bugs at all\n- Totally no bugs present"
   }
 ]
