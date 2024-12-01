@@ -106,5 +106,17 @@
       "url": "https://github.com/tyuXX/DDCMUN/commit/370bb81412cf50bb9536abe384debc1e85276351"
     },
     "lastUpdated": "2024-12-01 17:41:32 +0300"
+  },
+  {
+    "name": "Chess",
+    "description": "Basic chess game made using HTML",
+    "githubUrl": "https://github.com/tyuXX/Chess",
+    "lastCommit": {
+      "hash": "bc4c41f2e7b4c4311f5382988f3d8cd1336903cf",
+      "message": "Log",
+      "date": "2024-12-01 18:06:34 +0300",
+      "url": "https://github.com/tyuXX/Chess/commit/bc4c41f2e7b4c4311f5382988f3d8cd1336903cf"
+    },
+    "lastUpdated": "2024-12-01 18:06:34 +0300"
   }
 ]
