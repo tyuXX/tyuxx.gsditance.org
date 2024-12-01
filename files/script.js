@@ -103,11 +103,31 @@ const createProjectCard = (project) => {
   commitLink.appendChild(commitIcon);
   commitLink.appendChild(commitMessage);
   commitLink.appendChild(commitHash);
+
+  // Create README section
+  const readmeToggle = document.createElement("button");
+  readmeToggle.className = "readme-toggle";
+  readmeToggle.innerHTML = '<i class="fas fa-book"></i> View README';
+  
+  const readmeContent = document.createElement("div");
+  readmeContent.className = "project-readme";
+  readmeContent.textContent = project.readme || "No README available";
+  
+  readmeToggle.addEventListener("click", () => {
+    readmeContent.classList.toggle("active");
+    readmeToggle.innerHTML = readmeContent.classList.contains("active") 
+      ? '<i class="fas fa-book-open"></i> Hide README'
+      : '<i class="fas fa-book"></i> View README';
+  });
   
   // Append all elements
   li.appendChild(header);
   li.appendChild(description);
   li.appendChild(commitLink);
+  if (project.readme) {
+    li.appendChild(readmeToggle);
+    li.appendChild(readmeContent);
+  }
   
   return li;
 };

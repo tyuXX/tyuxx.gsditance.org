@@ -63,6 +63,14 @@ jobs:
             last_commit_date=$(git log -1 --format=%cd --date=iso)
             last_updated=$(git log -1 --format=%cd --date=iso)
             
+            # Get README content
+            readme_content=""
+            if [ -f "README.md" ]; then
+              readme_content=$(cat README.md)
+            elif [ -f "README" ]; then
+              readme_content=$(cat README)
+            fi
+            
             cd - > /dev/null
             
             repo_info=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
@@ -80,8 +88,9 @@ jobs:
                 \"date\": \"$last_commit_date\",
                 \"url\": \"$github_url/commit/$last_commit_hash\"
               },
-              \"lastUpdated\": \"$last_updated\"
-            }]")
+              \"lastUpdated\": \"$last_updated\",
+              \"readme\": \"$(echo "$readme_content" | sed 's/"/\\"/g')\"
+            }]")            
           done < <(git config --file .gitmodules --get-regexp path)
           
           echo "$submodules_json" > submodules.json

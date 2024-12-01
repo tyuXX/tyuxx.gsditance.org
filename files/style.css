@@ -197,6 +197,45 @@ main {
   font-size: 0.8rem;
 }
 
+.project-readme {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--card-dark);
+  border-radius: 8px;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  display: none;
+}
+
+.light-theme .project-readme {
+  background: var(--card-light);
+}
+
+.project-readme.active {
+  display: block;
+}
+
+.readme-toggle {
+  background: none;
+  border: none;
+  color: var(--text-dark);
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.light-theme .readme-toggle {
+  color: var(--text-light);
+}
+
+.readme-toggle:hover {
+  color: var(--primary-color);
+}
+
 /* Loading State */
 .loading-spinner {
   display: flex;
