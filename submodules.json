@@ -121,12 +121,12 @@
     "description": "Basic chess game made using HTML",
     "githubUrl": "https://github.com/tyuXX/Chess",
     "lastCommit": {
-      "hash": "ce7165bdd0e3c37489c84a4578543b42f86201b5",
-      "message": "Add en passant\nAdd checks\nAdd cheackmate",
-      "date": "2024-12-02 19:55:03 +0300",
-      "url": "https://github.com/tyuXX/Chess/commit/ce7165bdd0e3c37489c84a4578543b42f86201b5"
+      "hash": "03099eca88869f71784234e57deafb08aacbdbf5",
+      "message": "Fix dark mode for move log",
+      "date": "2024-12-02 21:58:10 +0300",
+      "url": "https://github.com/tyuXX/Chess/commit/03099eca88869f71784234e57deafb08aacbdbf5"
     },
-    "lastUpdated": "2024-12-02 19:55:03 +0300",
+    "lastUpdated": "2024-12-02 21:58:10 +0300",
     "readme": "# Chess\n\nA simple chess game built with HTML, CSS, and JavaScript.\n\n## Features\n\n- Extreme chess gameplay\n- Adventure\n- Cheese not included\n- No bugs\n- No bugs\n- No bugs\n- No bugs\n- No bugs\n- No bugs\n- No bugs at all\n- Totally no bugs present"
   }
 ]
