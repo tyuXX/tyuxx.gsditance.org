@@ -108,12 +108,12 @@
     "description": "An MUN application made in HTML, as wxMUN wasn't updated and i want a new program.",
     "githubUrl": "https://github.com/tyuXX/DDCMUN",
     "lastCommit": {
-      "hash": "5c68386375f7e2151683aba32385bf8d81e8fea7",
-      "message": "Add readme",
-      "date": "2024-12-01 19:10:20 +0300",
-      "url": "https://github.com/tyuXX/DDCMUN/commit/5c68386375f7e2151683aba32385bf8d81e8fea7"
+      "hash": "81aeb4da696a7890ba661692654a6a8379e7944c",
+      "message": "Fix stuff, add mobile support.\nAdd favicon.",
+      "date": "2024-12-05 22:48:53 +0300",
+      "url": "https://github.com/tyuXX/DDCMUN/commit/81aeb4da696a7890ba661692654a6a8379e7944c"
     },
-    "lastUpdated": "2024-12-01 19:10:20 +0300",
+    "lastUpdated": "2024-12-05 22:48:53 +0300",
     "readme": "# DDCMUN: Delegate and Committee Management Utility\n\n## Overview\nA web-based tool for managing Model United Nations conferences, designed by Cheese Inc. and [tyuXX](https://github.com/tyuXX).\n\n## Key Functionalities\n- Add/remove delegates\n- Create different list types (GSL, Moderated Caucus, etc.)\n- Set and manage timers\n- Save and load sessions\n- Basic MUN stuff, that's it.\n\n## License\nMIT License"
   },
   {
