@@ -1,3 +1,11 @@
+// Initialize markdown renderer
+const renderer = new MDRenderer();
+
+// Function to render markdown content
+const renderMarkdown = (markdownContent) => {
+  return renderer.render(markdownContent);
+};
+
 // Theme handling
 const toggle = document.getElementById("theme-toggle");
 const moonIcon = toggle.querySelector("i");
@@ -111,7 +119,11 @@ const createProjectCard = (project) => {
   
   const readmeContent = document.createElement("div");
   readmeContent.className = "project-readme";
-  readmeContent.textContent = project.readme || "No README available";
+  if (project.readme) {
+    readmeContent.innerHTML = renderMarkdown(project.readme);
+  } else {
+    readmeContent.textContent = "No README available";
+  }
   
   readmeToggle.addEventListener("click", () => {
     readmeContent.classList.toggle("active");
