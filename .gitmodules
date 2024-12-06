@@ -28,3 +28,6 @@
 [submodule "Chess"]
 	path = Chess
 	url = https://github.com/tyuXX/Chess.git
+[submodule "MDRender"]
+	path = MDRender
+	url = https://github.com/tyuXX/MDRender.git
