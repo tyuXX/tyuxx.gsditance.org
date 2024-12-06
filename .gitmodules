@@ -31,3 +31,9 @@
 [submodule "MDRender"]
 	path = MDRender
 	url = https://github.com/tyuXX/MDRender.git
+[submodule "Visualized"]
+	path = Visualized
+	url = https://github.com/tyuXX/Visualized.git
+[submodule "VisuSort"]
+	path = VisuSort
+	url = https://github.com/tyuXX/VisuSort.git
