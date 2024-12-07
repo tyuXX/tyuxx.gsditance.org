@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 * * * *'  # Run daily at midnight UTC
+    - cron: '0 * * * *'  # Run hourly
 
 jobs:
   manage-submodules:
@@ -59,16 +59,16 @@ jobs:
             cd "$path"
             
             last_commit_hash=$(git rev-parse HEAD)
-            last_commit_message=$(git log -1 --pretty=%B)
+            last_commit_message=$(git log -1 --pretty=%B | jq -aRs .)
             last_commit_date=$(git log -1 --format=%cd --date=iso)
             last_updated=$(git log -1 --format=%cd --date=iso)
             
-            # Get README content
+            # Get README content and properly escape it
             readme_content=""
             if [ -f "README.md" ]; then
-              readme_content=$(cat README.md)
+              readme_content=$(jq -aRs . < README.md)
             elif [ -f "README" ]; then
-              readme_content=$(cat README)
+              readme_content=$(jq -aRs . < README)
             fi
             
             cd - > /dev/null
@@ -76,21 +76,33 @@ jobs:
             repo_info=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
               "https://api.github.com/repos/$owner/$repo")
             
-            description=$(echo "$repo_info" | jq -r '.description // "No description available"')
+            description=$(echo "$repo_info" | jq -r '.description // "No description available"' | jq -aRs .)
             
-            submodules_json=$(echo $submodules_json | jq ". + [{
-              \"name\": \"$path\",
-              \"description\": \"$description\",
-              \"githubUrl\": \"$github_url\",
-              \"lastCommit\": {
-                \"hash\": \"$last_commit_hash\",
-                \"message\": \"$(echo "$last_commit_message" | sed 's/"/\\"/g')\",
-                \"date\": \"$last_commit_date\",
-                \"url\": \"$github_url/commit/$last_commit_hash\"
-              },
-              \"lastUpdated\": \"$last_updated\",
-              \"readme\": \"$(echo "$readme_content" | sed 's/"/\\"/g')\"
-            }]")            
+            # Create JSON object with properly escaped values
+            new_entry=$(jq -n \
+              --arg name "$path" \
+              --arg desc "$description" \
+              --arg url "$github_url" \
+              --arg hash "$last_commit_hash" \
+              --arg msg "$last_commit_message" \
+              --arg date "$last_commit_date" \
+              --arg updated "$last_updated" \
+              --arg readme "$readme_content" \
+              '{
+                "name": $name,
+                "description": ($desc | fromjson),
+                "githubUrl": $url,
+                "lastCommit": {
+                  "hash": $hash,
+                  "message": ($msg | fromjson),
+                  "date": $date,
+                  "url": ($url + "/commit/" + $hash)
+                },
+                "lastUpdated": $updated,
+                "readme": ($readme | fromjson)
+              }')
+            
+            submodules_json=$(echo "$submodules_json" | jq ". + [$new_entry]")
           done < <(git config --file .gitmodules --get-regexp path)
           
           echo "$submodules_json" > submodules.json
