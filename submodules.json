@@ -5,7 +5,7 @@
     "githubUrl": "https://github.com/tyuXX/KediRNG",
     "lastCommit": {
       "hash": "61718e9e1176216c591513076e2381211a512d95",
-      "message": "Optimize (Hopefully)\nAdd Debug.js",
+      "message": "Optimize (Hopefully)Add Debug.js",
       "date": "2024-11-30 18:25:44 +0300",
       "url": "https://github.com/tyuXX/KediRNG/commit/61718e9e1176216c591513076e2381211a512d95"
     },
@@ -23,7 +23,7 @@
       "url": "https://github.com/tyuXX/tyuLIB/commit/079d7a3aa94275d650825a2cb0d2c8cfde352eb7"
     },
     "lastUpdated": "2024-11-20 23:01:50 +0300",
-    "readme": ""
+    "readme": "No README available"
   },
   {
     "name": "TowerDefenseSquared",
@@ -36,7 +36,7 @@
       "url": "https://github.com/tyuXX/TowerDefenseSquared/commit/d99df2e60c461360523a8ace4019cb79c90a00e1"
     },
     "lastUpdated": "2024-12-02 19:22:58 +0300",
-    "readme": ""
+    "readme": "No README available"
   },
   {
     "name": "DDCCrypterJS",
@@ -49,7 +49,7 @@
       "url": "https://github.com/tyuXX/DDCCrypterJS/commit/6f23252a2693d12a96a2e1552812fba70ddf1810"
     },
     "lastUpdated": "2024-08-14 17:17:13 +0300",
-    "readme": ""
+    "readme": "No README available"
   },
   {
     "name": "ClinkerGame",
@@ -62,7 +62,7 @@
       "url": "https://github.com/tyuXX/ClinkerGame/commit/69d99d7bba4660a9ed39d5de51f13069bf76575d"
     },
     "lastUpdated": "2024-07-29 13:25:29 +0300",
-    "readme": ""
+    "readme": "No README available"
   },
   {
     "name": "DDCGrapherJS",
@@ -75,7 +75,7 @@
       "url": "https://github.com/tyuXX/DDCGrapherJS/commit/678655fcd47a9001d9a17188acc9948d2d93cfc5"
     },
     "lastUpdated": "2024-07-24 00:02:03 +0300",
-    "readme": ""
+    "readme": "No README available"
   },
   {
     "name": "GravSim",
@@ -88,7 +88,7 @@
       "url": "https://github.com/tyuXX/GravSim/commit/16296300ebbeeef581b4ca942109c43b97a88a64"
     },
     "lastUpdated": "2024-11-29 23:14:34 +0300",
-    "readme": ""
+    "readme": "No README available"
   },
   {
     "name": "2048",
@@ -109,7 +109,7 @@
     "githubUrl": "https://github.com/tyuXX/DDCMUN",
     "lastCommit": {
       "hash": "81aeb4da696a7890ba661692654a6a8379e7944c",
-      "message": "Fix stuff, add mobile support.\nAdd favicon.",
+      "message": "Fix stuff, add mobile support.Add favicon.",
       "date": "2024-12-05 22:48:53 +0300",
       "url": "https://github.com/tyuXX/DDCMUN/commit/81aeb4da696a7890ba661692654a6a8379e7944c"
     },
@@ -128,5 +128,44 @@
     },
     "lastUpdated": "2024-12-02 21:58:10 +0300",
     "readme": "# Chess\n\nA simple chess game built with HTML, CSS, and JavaScript.\n\n## Features\n\n- Extreme chess gameplay\n- Adventure\n- Cheese not included\n- No bugs\n- No bugs\n- No bugs\n- No bugs\n- No bugs\n- No bugs\n- No bugs at all\n- Totally no bugs present"
+  },
+  {
+    "name": "MDRender",
+    "description": "No description available",
+    "githubUrl": "https://github.com/tyuXX/MDRender",
+    "lastCommit": {
+      "hash": "a01ecd78153c0550afcf0d0eceff269d3669b085",
+      "message": "Push",
+      "date": "2024-12-07 00:03:37 +0300",
+      "url": "https://github.com/tyuXX/MDRender/commit/a01ecd78153c0550afcf0d0eceff269d3669b085"
+    },
+    "lastUpdated": "2024-12-07 00:03:37 +0300",
+    "readme": "# MDRender\n\nA lightweight, customizable markdown renderer for web applications. MDRender converts markdown text into styled HTML with support for dark mode and custom theming.\n\n## Features\n\n- 📝 Full markdown support including:\n  - Headings (h1-h6)\n  - Bold and italic text\n  - Code blocks with language highlighting\n  - Inline code\n  - Lists (ordered and unordered)\n  - Blockquotes\n  - Links\n  - Tables\n  - Images\n- 🎨 Customizable themes via CSS variables\n- 🌙 Built-in dark mode support\n- 🎯 Zero dependencies\n- 📱 Responsive design\n- 🚀 Simple API\n\n## Getting Started\n\n### 1. Include the Required Files\n\n```html\n<link rel=\"stylesheet\" href=\"https://raw.githubusercontent.com/tyuXX/MDRender/refs/heads/main/css/markdown.css\">\n<script src=\"https://raw.githubusercontent.com/tyuXX/MDRender/refs/heads/main/js/renderer.js\"></script>\n```\n\n### 2. Initialize the Renderer\n\n```javascript\nconst renderer = new MDRenderer();\n```\n\n### 3. Convert Markdown to HTML\n\n```javascript\nconst markdown = \"# Hello World\\nThis is **markdown**!\";\nconst html = renderer.render(markdown);\n// Output: <div class=\"mdrender\"><h1>Hello World</h1><p>This is <strong>markdown</strong>!</p></div>\n```\n\n### 4. Display the Result\n\n```javascript\ndocument.getElementById('output').innerHTML = html;\n```\n\n## Customizing Styles\n\n### Basic Theme Customization\n\nOverride the default colors by setting CSS variables:\n\n```css\n.mdrender {\n    --md-text: #333;          /* Main text color */\n    --md-header: #2c3e50;     /* Heading color */\n    --md-code-bg: #f8f9fa;    /* Code background */\n    --md-blockquote: #666;    /* Blockquote text color */\n    --md-link: #3498db;       /* Link color */\n    --md-border: #ddd;        /* Border color */\n}\n```\n\n### Dark Mode Support\n\nAdd dark mode styles by using the `data-theme` attribute:\n\n```css\n[data-theme=\"dark\"] .mdrender {\n    --md-text: #e0e0e0;\n    --md-header: #60a5fa;\n    --md-code-bg: #2d2d2d;\n    --md-blockquote: #a0a0a0;\n    --md-link: #60a5fa;\n    --md-border: #404040;\n}\n```\n\nToggle dark mode with JavaScript:\n\n```javascript\n// Enable dark mode\ndocument.documentElement.setAttribute('data-theme', 'dark');\n\n// Enable light mode\ndocument.documentElement.setAttribute('data-theme', 'light');\n```\n\n## Complete Example\n\nHere's a complete example showing how to use MDRender in your project:\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n    <meta charset=\"utf-8\">\n    <title>MDRender Example</title>\n    <link rel=\"stylesheet\" href=\"markdown.css\">\n</head>\n<body>\n    <div id=\"output\"></div>\n\n    <script src=\"renderer.js\"></script>\n    <script>\n        // Initialize renderer\n        const renderer = new MDRenderer();\n\n        // Your markdown content\n        const markdown = `\n# Welcome to MDRender\n\nThis is a **bold** statement and this is *italic*.\n\n## Code Example\n\\`\\`\\`javascript\nfunction hello() {\n    console.log('Hello, World!');\n}\n\\`\\`\\`\n\n> This is a blockquote\n\n1. Ordered list item 1\n2. Ordered list item 2\n\n- Unordered list item\n- Another item\n\n[Visit our website](https://example.com)\n        `;\n\n        // Render and display\n        document.getElementById('output').innerHTML = renderer.render(markdown);\n    </script>\n</body>\n</html>\n```\n\n## Supported Markdown Syntax\n\n- Headings: `# H1` through `###### H6`\n- Bold: `**bold text**`\n- Italic: `*italic text*`\n- Code blocks: ````javascript code here```\n- Inline code: `` `code` ``\n- Lists:\n  - Unordered: `- item`\n  - Ordered: `1. item`\n- Blockquotes: `> quote`\n- Links: `[text](url)`\n- Images: `![alt](url)`\n- Tables:\n  ```\n  | Header | Header |\n  |--------|--------|\n  | Cell   | Cell   |\n  ```\n\n## Browser Support\n\nMDRender works in all modern browsers:\n- Chrome\n- Firefox\n- Safari\n- Edge\n\n## Contributing\n\nFeel free to submit issues and enhancement requests!\n\n## License\n\nMIT License - feel free to use this in your own projects!"
+  },
+  {
+    "name": "Visualized",
+    "description": "A visualization of programming algorithms",
+    "githubUrl": "https://github.com/tyuXX/Visualized",
+    "lastCommit": {
+      "hash": "b8eb7e678c144abc59bc9aa60359a19c321d4705",
+      "message": "Add more algorithms",
+      "date": "2024-12-07 15:15:07 +0300",
+      "url": "https://github.com/tyuXX/Visualized/commit/b8eb7e678c144abc59bc9aa60359a19c321d4705"
+    },
+    "lastUpdated": "2024-12-07 15:15:07 +0300",
+    "readme": "No README available"
+  },
+  {
+    "name": "VisuSort",
+    "description": "No description available",
+    "githubUrl": "https://github.com/tyuXX/VisuSort",
+    "lastCommit": {
+      "hash": "0411e4949c35c58a5b0aed655da1555cabcd6643",
+      "message": "push2",
+      "date": "2024-11-02 23:01:30 +0300",
+      "url": "https://github.com/tyuXX/VisuSort/commit/0411e4949c35c58a5b0aed655da1555cabcd6643"
+    },
+    "lastUpdated": "2024-11-02 23:01:30 +0300",
+    "readme": "No README available"
   }
 ]
