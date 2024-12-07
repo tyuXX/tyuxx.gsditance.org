@@ -51,59 +51,77 @@ jobs:
           # Loop through each submodule
           while IFS= read -r line; do
             path=$(echo "$line" | awk '{print $2}')
+            [ -z "$path" ] && continue
+            
             url=$(git config --file .gitmodules --get "submodule.$path.url")
+            [ -z "$url" ] && continue
             
             repo=$(basename "$url" .git)
             github_url="https://github.com/$owner/$repo"
             
-            cd "$path" || continue
+            if ! cd "$path" 2>/dev/null; then
+              echo "Warning: Could not access submodule directory $path"
+              continue
+            fi
             
-            last_commit_hash=$(git rev-parse HEAD)
-            # Safely get commit message with fallback
-            last_commit_message=$(git log -1 --pretty=%B || echo "No commit message") 
-            last_commit_message=$(echo "$last_commit_message" | jq -R -s '.')
-            last_commit_date=$(git log -1 --format=%cd --date=iso)
-            last_updated=$(git log -1 --format=%cd --date=iso)
+            # Get commit information
+            if ! last_commit_hash=$(git rev-parse HEAD 2>/dev/null); then
+              echo "Warning: Could not get commit hash for $path"
+              cd - > /dev/null
+              continue
+            fi
             
-            # Get README content with safe fallbacks
-            readme_content="No README available"
+            # Get commit message and escape it properly
+            last_commit_message=$(git log -1 --pretty=%B 2>/dev/null || echo "No commit message")
+            last_commit_message=$(echo "$last_commit_message" | jq -R . | jq -s -c '. | join("")')
+            
+            # Get dates
+            last_commit_date=$(git log -1 --format=%cd --date=iso 2>/dev/null || echo "Unknown")
+            last_updated=$(git log -1 --format=%cd --date=iso 2>/dev/null || echo "Unknown")
+            
+            # Get README content safely
             if [ -f "README.md" ] && [ -s "README.md" ]; then
-              readme_content=$(cat README.md | jq -R -s '.')
+              readme_content=$(cat README.md | jq -R . | jq -s -c '. | join("\n")')
             elif [ -f "README" ] && [ -s "README" ]; then
-              readme_content=$(cat README | jq -R -s '.')
+              readme_content=$(cat README | jq -R . | jq -s -c '. | join("\n")')
+            else
+              readme_content="\"No README available\""
             fi
             
             cd - > /dev/null
             
-            # Safely get repository info with fallback
+            # Get repository description safely
             repo_info=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
               "https://api.github.com/repos/$owner/$repo")
-            
             description=$(echo "$repo_info" | jq -r '.description // "No description available"')
-            description=$(echo "$description" | jq -R -s '.')
+            description=$(echo "$description" | jq -R . | jq -s -c '. | join("")')
             
-            # Create temporary JSON file for this entry
-            echo "{
-              \"name\": \"$path\",
-              \"description\": ${description},
-              \"githubUrl\": \"$github_url\",
-              \"lastCommit\": {
-                \"hash\": \"$last_commit_hash\",
-                \"message\": ${last_commit_message},
-                \"date\": \"$last_commit_date\",
-                \"url\": \"$github_url/commit/$last_commit_hash\"
-              },
-              \"lastUpdated\": \"$last_updated\",
-              \"readme\": ${readme_content}
-            }" | jq '.' > temp_entry.json
+            # Create entry using jq to ensure proper JSON formatting
+            jq --arg path "$path" \
+               --arg desc "$description" \
+               --arg url "$github_url" \
+               --arg hash "$last_commit_hash" \
+               --arg msg "$last_commit_message" \
+               --arg date "$last_commit_date" \
+               --arg updated "$last_updated" \
+               --arg readme "$readme_content" \
+               -n '{
+                 name: $path,
+                 description: ($desc | fromjson),
+                 githubUrl: $url,
+                 lastCommit: {
+                   hash: $hash,
+                   message: ($msg | fromjson),
+                   date: $date,
+                   url: ($url + "/commit/" + $hash)
+                 },
+                 lastUpdated: $updated,
+                 readme: ($readme | fromjson)
+               }' > temp_entry.json
             
-            # Append to main JSON array if valid
-            if jq '.' temp_entry.json >/dev/null 2>&1; then
-              jq -s '.[0] + [.[1]]' submodules.json temp_entry.json > temp_submodules.json && \
-              mv temp_submodules.json submodules.json
-            else
-              echo "Warning: Invalid JSON generated for $path, skipping..."
-            fi
+            # Merge with existing JSON array
+            jq -s '.[0] + [.[1]]' submodules.json temp_entry.json > temp_submodules.json && \
+            mv temp_submodules.json submodules.json
             
             rm -f temp_entry.json
             
