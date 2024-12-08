@@ -37,3 +37,6 @@
 [submodule "VisuSort"]
 	path = VisuSort
 	url = https://github.com/tyuXX/VisuSort.git
+[submodule "DDCSandbox"]
+	path = DDCSandbox
+	url = https://github.com/tyuXX/DDCSandbox.git
