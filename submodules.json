@@ -69,12 +69,12 @@
     "description": "No description available",
     "githubUrl": "https://github.com/tyuXX/DDCGrapherJS",
     "lastCommit": {
-      "hash": "678655fcd47a9001d9a17188acc9948d2d93cfc5",
-      "message": "Create static.yml",
-      "date": "2024-07-24 00:02:03 +0300",
-      "url": "https://github.com/tyuXX/DDCGrapherJS/commit/678655fcd47a9001d9a17188acc9948d2d93cfc5"
+      "hash": "6e9859fd5de3c010872c6635f8627a33cb42aca9",
+      "message": "Fix small issueChange rendering type to pixelated to ensure no interpolation",
+      "date": "2024-12-08 21:04:44 +0300",
+      "url": "https://github.com/tyuXX/DDCGrapherJS/commit/6e9859fd5de3c010872c6635f8627a33cb42aca9"
     },
-    "lastUpdated": "2024-07-24 00:02:03 +0300",
+    "lastUpdated": "2024-12-08 21:04:44 +0300",
     "readme": "No README available"
   },
   {
