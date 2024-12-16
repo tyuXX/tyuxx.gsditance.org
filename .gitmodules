@@ -40,3 +40,6 @@
 [submodule "DDCSandbox"]
 	path = DDCSandbox
 	url = https://github.com/tyuXX/DDCSandbox.git
+[submodule "Mazeability"]
+	path = Mazeability
+	url = https://github.com/tyuXX/Mazeability.git
