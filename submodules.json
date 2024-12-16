@@ -180,5 +180,18 @@
     },
     "lastUpdated": "2024-12-08 22:21:03 +0300",
     "readme": "No README available"
+  },
+  {
+    "name": "Mazeability",
+    "description": "Very basic maze generation utility",
+    "githubUrl": "https://github.com/tyuXX/Mazeability",
+    "lastCommit": {
+      "hash": "e3301b9beaeecb0bf5788736591ad3adcc83440a",
+      "message": "Improve",
+      "date": "2024-12-16 22:05:37 +0300",
+      "url": "https://github.com/tyuXX/Mazeability/commit/e3301b9beaeecb0bf5788736591ad3adcc83440a"
+    },
+    "lastUpdated": "2024-12-16 22:05:37 +0300",
+    "readme": "No README available"
   }
 ]
