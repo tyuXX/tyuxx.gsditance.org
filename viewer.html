@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; frame-src 'self'; script-src 'self'; style-src 'self';"
+    />
+    <link rel="stylesheet" href="./files/viewer.css" />
+    <script src="files/favicon.js"></script>
+    <title>[tyuXX]/Viewer | GsDistance</title>
+  </head>
+  <body>
+    <button id="back-btn">Back</button>
+    <button id="tab-btn">Open in New Tab</button>
+    <iframe
+      id="page"
+      src="./files/placeholder.html"
+      sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+    >
+    </iframe>
+    <script src="./files/viewer.js" defer></script>
+  </body>
+</html>

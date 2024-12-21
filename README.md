@@ -1,4 +1,4 @@
-# Tyuxx.gsditance.org
+# tyuxx.gsdistance.org
 # By [tyuXX](https://github.com/tyuXX)
 
 ## Contributing

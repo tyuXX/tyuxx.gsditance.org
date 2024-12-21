@@ -74,7 +74,7 @@ const createProjectCard = (project) => {
   header.className = "project-header";
   
   const nameLink = document.createElement("a");
-  nameLink.href = `/${project.name}`; // Link to submodule
+  nameLink.href = `viewer.html?render=${project.name}`; // Link to submodule
   nameLink.className = "project-name";
   nameLink.textContent = project.name;
   
