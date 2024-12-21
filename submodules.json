@@ -95,12 +95,12 @@
     "description": "A basic impelentation of 2048 with a customizable grid size.",
     "githubUrl": "https://github.com/tyuXX/2048",
     "lastCommit": {
-      "hash": "d0eb91e5309c8e1d09f3200388fad4684f3fafd9",
-      "message": "Add mobile support",
-      "date": "2024-12-21 12:38:44 +0300",
-      "url": "https://github.com/tyuXX/2048/commit/d0eb91e5309c8e1d09f3200388fad4684f3fafd9"
+      "hash": "2287d9302ae0bb7a588addd14472e3dde53e4b20",
+      "message": "Add saving",
+      "date": "2024-12-21 13:11:52 +0300",
+      "url": "https://github.com/tyuXX/2048/commit/2287d9302ae0bb7a588addd14472e3dde53e4b20"
     },
-    "lastUpdated": "2024-12-21 12:38:44 +0300",
+    "lastUpdated": "2024-12-21 13:11:52 +0300",
     "readme": "# 2048 Game\n\nA 2048 game with customizable grid sizes. Play with any grid size from 2x2 up to 56x56.\n\n[Play the game](https://tyuXX.github.io/2048)\n\n## Features\n\nbasic 2048, cheesecake not included.\n\n## How to Play\n\n1. Use arrow keys or WASD to move tiles\n2. Tiles with the same number merge when they collide\n3. Create a tile with the number 2048 to win!\n4. Adjust grid size using the slider for different challenges\n5. Try to achieve high scores across different grid sizes\n\n## Controls\n\n- **Arrow Keys** or **WASD**: Move tiles\n- **Slider**: Change grid size (2x2 to 56x56)\n- **New Game Button**: Start a fresh game\n\n## Technical Details\n\nThe game is built using vanilla JavaScript, HTML5, and CSS. That's it.\n\n## License\n\nThis project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.\nI don't care what you do to this at all if you want to."
   },
   {
